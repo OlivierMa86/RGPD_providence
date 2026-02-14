@@ -522,7 +522,7 @@ function getUsedToolsGdprLinks($pdo, $id_utilisateur = null)
 
             foreach ($chunks as $chunk) {
                 $clean_chunk = trim($chunk, " \t\n\r\0\x0B.,;!?()[]'\"");
-                $lower_chunk = mb_strtolower($clean_chunk);
+                $lower_chunk = function_exists('mb_strtolower') ? mb_strtolower($clean_chunk) : strtolower($clean_chunk);
 
                 // On ignore si trop court, si c'est un stop-word, ou si c'est déjà un outil connu détecté
                 if (strlen($clean_chunk) < 3 || in_array($lower_chunk, $stop_words))

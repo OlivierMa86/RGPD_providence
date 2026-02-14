@@ -84,6 +84,24 @@ $conseils = $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
                             style="padding: 5px 15px; font-size: 13px;">⚡ Générer mon PDF maintenant</a></li>
                 </ul>
             </div>
+
+            <div class="section" style="background: #fdf2f2; border-left: 4px solid #f87171;">
+                <h3>🧰 Boîte à outils & Ressources</h3>
+                <p>Documents indispensables pré-remplis avec vos réponses :</p>
+                <ul style="margin-top: 10px;">
+                    <li><a href="generate_doc.php?type=mention" target="_blank"
+                            style="color: #c53030; font-weight: bold;">📝 Modèle de mention d'information
+                            (Élèves/Parents)</a></li>
+                    <li><a href="generate_doc.php?type=droit_image" target="_blank"
+                            style="color: #c53030; font-weight: bold;">📸 Autorisation Droit à l'image CPGE/Collège</a>
+                    </li>
+                    <li><a href="generate_doc.php?type=guide" target="_blank"
+                            style="color: #c53030; font-weight: bold;">🛡️ Mon Guide de survie RGPD personnalisé</a>
+                    </li>
+                </ul>
+                <p style="font-size: 0.85em; color: #666; margin-top: 10px;"><em>Note : Ces documents sont générés
+                        dynamiquement selon votre dernier bilan.</em></p>
+            </div>
         </div>
     </div>
 

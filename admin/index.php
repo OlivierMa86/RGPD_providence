@@ -44,6 +44,66 @@ $nbQuestionnaires = $pdo->query("SELECT COUNT(*) FROM questionnaires WHERE statu
             </div>
         </div>
 
+        <div class="section" style="background: #f0f7ff; border-left: 4px solid #3182ce;">
+            <h3>📋 Checklist de Conformité (Prêt pour un Audit CNIL)</h3>
+            <p style="margin-bottom: 15px;">Voici les 10 documents clés que vous devez être en mesure de présenter
+                immédiatement :</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 10px;">
+                <div
+                    style="padding: 10px; background: white; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+                    <span>1. Registre des activités de traitement</span>
+                    <span style="color: #38a169; font-weight: bold;">🟢 PRÊT</span>
+                </div>
+                <div
+                    style="padding: 10px; background: white; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+                    <span>2. Acte de désignation du DPO</span>
+                    <span style="color: #e53e3e; font-weight: bold;">🔴 MANQUANT</span>
+                </div>
+                <div
+                    style="padding: 10px; background: white; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+                    <span>3. AIPD (Analyses d'Impact)</span>
+                    <span style="color: #d69e2e; font-weight: bold;">🟡 À VÉRIFIER</span>
+                </div>
+                <div
+                    style="padding: 10px; background: white; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+                    <span>4. Mentions d'information (Inscriptions)</span>
+                    <span style="color: #38a169; font-weight: bold;">🟢 PRÊT</span>
+                </div>
+                <div
+                    style="padding: 10px; background: white; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+                    <span>5. Modèles de consentement Droit Image</span>
+                    <span style="color: #38a169; font-weight: bold;">🟢 PRÊT</span>
+                </div>
+                <div
+                    style="padding: 10px; background: white; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+                    <span>6. Procédure d'exercice des droits</span>
+                    <span style="color: #e53e3e; font-weight: bold;">🔴 MANQUANT</span>
+                </div>
+                <div
+                    style="padding: 10px; background: white; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+                    <span>7. Contrats sous-traitants (Clauses RGPD)</span>
+                    <span style="color: #d69e2e; font-weight: bold;">🟡 À VÉRIFIER</span>
+                </div>
+                <div
+                    style="padding: 10px; background: white; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+                    <span>8. Liste des destinataires de données</span>
+                    <span style="color: #38a169; font-weight: bold;">🟢 PRÊT</span>
+                </div>
+                <div
+                    style="padding: 10px; background: white; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+                    <span>9. PSSI (Sécurité Informatique)</span>
+                    <span style="color: #e53e3e; font-weight: bold;">🔴 MANQUANT</span>
+                </div>
+                <div
+                    style="padding: 10px; background: white; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+                    <span>10. Registre des violations de données</span>
+                    <span style="color: #38a169; font-weight: bold;">🟢 PRÊT</span>
+                </div>
+            </div>
+            <p style="margin-top: 15px; font-size: 0.9em; text-align: right;"><a href="documents.php"
+                    style="color: #3182ce; font-weight: bold;">Gérer vos preuves et statuts →</a></p>
+        </div>
+
         <div class="section">
             <h3>🚀 Actions rapides</h3>
             <div class="dashboard-grid">
