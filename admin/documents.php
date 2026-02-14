@@ -34,11 +34,12 @@ $status_colors = [
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../assets/css/style.css?v=1.1">
-    <title>Gestion des Documents - Plateforme RGPD</title>
+    <title>Gestion des Documents - Plateforme Providence</title>
 </head>
 
 <body>
     <?php include("../includes/header.php"); ?>
+    <?php include("../includes/admin_nav.php"); ?>
 
     <div class="container">
         <div class="welcome-header">

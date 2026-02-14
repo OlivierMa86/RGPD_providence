@@ -76,6 +76,7 @@ $users = $pdo->query("SELECT * FROM utilisateurs ORDER BY id_utilisateur DESC")-
 
 <body>
     <?php include("../includes/header.php"); ?>
+    <?php include("../includes/admin_nav.php"); ?>
     <div class="container">
         <h2>👥 Gestion des Utilisateurs</h2>
 
@@ -132,11 +133,13 @@ $users = $pdo->query("SELECT * FROM utilisateurs ORDER BY id_utilisateur DESC")-
                         <td>
                             <form method="post" style="display:inline;">
                                 <input type="hidden" name="user_id" value="<?php echo $u['id_utilisateur']; ?>">
-                                <button type="submit" name="reset_password" title="Réinitialiser MDP">🔄</button>
+                                <button type="submit" name="reset_password" title="Réinitialiser MDP"
+                                    style="background:none; border:none; cursor:pointer; font-size:18px; padding:5px;">🔑</button>
                             </form>
                             <?php if ($u['id_utilisateur'] != $currentUser['id_utilisateur']): ?>
-                                <a href="users.php?delete=<?php echo $u['id_utilisateur']; ?>" class="btn-danger"
-                                    onclick="return confirm('Supprimer ?')">❌</a>
+                                <a href="users.php?delete=<?php echo $u['id_utilisateur']; ?>" title="Supprimer"
+                                    style="text-decoration:none; font-size:18px; padding:5px; margin-left:10px;"
+                                    onclick="return confirm('Supprimer ?')">🗑️</a>
                             <?php endif; ?>
                         </td>
                     </tr>

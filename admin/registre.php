@@ -22,6 +22,7 @@ $traitements = $pdo->query("SELECT r.*, u.nom FROM registre_traitements r
 
 <body>
     <?php include("../includes/header.php"); ?>
+    <?php include("../includes/admin_nav.php"); ?>
 
     <div class="container">
         <h2>📁 Registre des activités de traitement</h2>

@@ -1,5 +1,5 @@
 -- ==========================================================
--- Plateforme RGPD - École & Collège La Providence - La Salle
+-- Plateforme Providence - École & Collège La Providence - La Salle
 -- Base adaptée pour IONOS : dbs15302347
 -- Auteur : Projet IA
 -- ==========================================================

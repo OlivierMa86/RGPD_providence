@@ -13,7 +13,7 @@ if ($currentUser['role'] != 'admin') {
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../assets/css/style.css?v=1.1">
-    <title>Documentation RGPD - Plateforme RGPD</title>
+    <title>Documentation RGPD - Plateforme Providence</title>
     <style>
         .doc-section {
             background: white;
@@ -62,6 +62,7 @@ if ($currentUser['role'] != 'admin') {
 
 <body>
     <?php include("../includes/header.php"); ?>
+    <?php include("../includes/admin_nav.php"); ?>
 
     <div class="container">
         <div class="welcome-header">
@@ -138,11 +139,11 @@ if ($currentUser['role'] != 'admin') {
             </div>
         </div>
 
-        <?php 
+        <?php
         include_once("../includes/functions.php");
         $toolLinks = getUsedToolsGdprLinks($pdo);
-        if (!empty($toolLinks)): 
-        ?>
+        if (!empty($toolLinks)):
+            ?>
             <div class="doc-section">
                 <h2>🔗 Références RGPD des outils utilisés</h2>
                 <p>Ces liens pointent vers les politiques de confidentialité officielles des outils détectés dans les

@@ -20,6 +20,7 @@ $logs = $pdo->query("SELECT j.*, u.pseudo FROM journal_actions j JOIN utilisateu
 
 <body>
     <?php include("../includes/header.php"); ?>
+    <?php include("../includes/admin_nav.php"); ?>
 
     <div class="container">
         <h2>📜 Journaux d'actions</h2>

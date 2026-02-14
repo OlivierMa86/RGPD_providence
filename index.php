@@ -21,12 +21,15 @@ if (isset($_POST['login'])) {
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Connexion - Plateforme RGPD</title>
+    <title>Connexion - Plateforme Providence</title>
 </head>
 
 <body>
     <div class="login-container">
-        <h2>Plateforme RGPD<br>École & Collège La Providence - La Salle</h2>
+        <div class="login-header">
+            <h2>Plateforme Providence<br>École & Collège La Providence - La Salle</h2>
+            <p>Espace de gestion RGPD & Sécurité Établissement</p>
+        </div>
 
         <?php if ($error): ?>
             <div class="alert error"><?php echo htmlspecialchars($error); ?></div>

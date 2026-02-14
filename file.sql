@@ -1,6 +1,6 @@
 -- ==========================================================
 --  Base : rgpd_etablissement
---  Plateforme RGPD - École & Collège La Providence - La Salle
+--  Plateforme Providence - École & Collège La Providence - La Salle
 --  Auteur : Projet IA
 --  Date : Version initiale
 -- ==========================================================
