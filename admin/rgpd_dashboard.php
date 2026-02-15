@@ -116,6 +116,9 @@ $nbQuestionnaires = $pdo->query("SELECT COUNT(*) FROM questionnaires WHERE statu
                     d'actions</a>
                 <a href="export_registre.php" class="btn" style="text-align: center; background-color: #38a169;">📥
                     Export Excel (CSV)</a>
+                <a href="legal_watch.php?context=rgpd" class="btn"
+                    style="text-align: center; background: linear-gradient(135deg, #667eea, #764ba2); grid-column: span 2;">✨
+                    Veille Juridique Assistée par IA</a>
             </div>
         </div>
     </div>

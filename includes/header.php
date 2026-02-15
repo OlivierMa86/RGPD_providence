@@ -12,6 +12,7 @@
                 <a href="<?php echo $root; ?>rgpd_view.php">🛡️ RGPD</a>
                 <a href="<?php echo $root; ?>ppms_view.php">🚨 Sécurité & PPMS</a>
             <?php endif; ?>
+            <a href="<?php echo $root; ?>guide.php">📖 Guide</a>
             <a href="<?php echo $root; ?>change_password.php">🔐 Profil</a>
             <a href="<?php echo $root; ?>logout.php">🚪 Déconnexion</a>
         </nav>

@@ -283,7 +283,8 @@ foreach ($exercices as $ex) {
                 <div class="section">
                     <h3>🚀 Actions rapides</h3>
                     <button onclick="document.getElementById('modalExercice').style.display='block'" class="btn" style="width: 100%; margin-bottom: 10px; background: #4a5568;">🚨 Programmer un exercice</button>
-                    <a href="ppms_documentation.php" class="btn" style="width: 100%; margin-bottom: 10px; background: #718096;">📚 Documentation PPMS</a>
+                    <a href="ppms_documentation.php" class="btn btn-secondary" style="width: 100%; margin-bottom: 10px;">📚 Documentation PPMS</a>
+                    <a href="legal_watch.php?context=ppms" class="btn" style="width: 100%; margin-bottom: 10px; background: linear-gradient(135deg, #667eea, #764ba2);">✨ Veille Juridique Assistée par IA</a>
                     <a href="index.php" class="btn" style="width: 100%; background: #a0aec0;">🔙 Retour Administration</a>
                 </div>
             </div>
