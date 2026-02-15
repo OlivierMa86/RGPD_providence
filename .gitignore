@@ -1,0 +1,13 @@
+# Fichiers sensibles
+.env
+includes/error_log.txt
+
+# Cache
+cache/
+
+# PDF exports
+pdf/
+
+# OS
+.DS_Store
+Thumbs.db

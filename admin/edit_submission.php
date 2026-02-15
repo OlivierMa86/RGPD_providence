@@ -42,9 +42,10 @@ if (isset($_POST['save_admin'])) {
     $message = "Questionnaire mis à jour par l'administrateur. Le registre et les conseils IA ont été synchronisés.";
 }
 
-// Charger les questions pour la fonction de l'utilisateur
-$questions = $pdo->prepare("SELECT * FROM questions WHERE fonction_cible = ? OR fonction_cible IS NULL OR fonction_cible = ''");
-$questions->execute([$targetUser['fonction']]);
+// Charger les questions pour la fonction de l'utilisateur (statiques + IA)
+$ia_tag = '[IA] ' . $targetUser['fonction'];
+$questions = $pdo->prepare("SELECT * FROM questions WHERE fonction_cible = ? OR fonction_cible = ? OR fonction_cible IS NULL OR fonction_cible = ''");
+$questions->execute([$targetUser['fonction'], $ia_tag]);
 $liste_questions = $questions->fetchAll();
 
 // Charger les réponses

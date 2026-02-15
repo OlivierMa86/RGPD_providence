@@ -62,8 +62,8 @@ $ppmsProcedures = $pdo->query("SELECT titre, chemin_fichier, description FROM pp
                     <h3>📄 Mon Espace RGPD</h3>
                     <ul style="padding-left: 20px;">
                         <li><a href="rgpd_view.php">Accéder à mes outils & bilans</a></li>
-                        <li style="margin-top:10px;"><a href="rgpd_view.php?action=pdf" class="btn"
-                                 style="padding: 5px 15px; font-size: 13px;">⚡ Générer mon Rapport PDF</a></li>
+                        <li style="margin-top:10px;"><a href="generate_bilan_pdf.php" class="btn"
+                                 style="padding: 5px 15px; font-size: 13px;">📋 Générer mon Bilan PDF complet</a></li>
                     </ul>
                 </div>
 

@@ -103,6 +103,13 @@ if ($currentUser['role'] != 'admin') {
                 <p>Gérez les comptes, les accès et les fonctions du personnel de l'établissement.</p>
                 <span class="btn" style="background-color: #38b2ac;">Gérer les Comptes</span>
             </a>
+
+            <a href="../dashboard.php" class="selection-card">
+                <div class="icon">📝</div>
+                <h2>Mon Espace Personnel</h2>
+                <p>Complétez votre propre questionnaire RGPD, consultez votre bilan et téléchargez votre fiche PDF.</p>
+                <span class="btn" style="background-color: #805ad5;">Mon Questionnaire</span>
+            </a>
         </div>
     </div>
 

@@ -127,11 +127,12 @@ if (isset($_GET['action']) && $_GET['action'] == "pdf") {
             <!-- PDF REPORT SECTION -->
             <div class="section">
                 <h3>📥 Rapport PDF Personnel</h3>
-                <p>Téléchargez un document récapitulatif avec votre score et les conseils de l'IA pour votre dossier.
+                <p>Téléchargez un document récapitulatif complet avec toutes vos réponses, votre score et les conseils
+                    de l'IA.
                 </p>
-                <a href="rgpd_view.php?action=pdf" class="btn"
-                    style="width: 100%; box-sizing: border-box; background-color: #4a5568;">⚡ Générer mon rapport
-                    PDF</a>
+                <a href="generate_bilan_pdf.php" class="btn"
+                    style="width: 100%; box-sizing: border-box; background-color: #4a5568;">📋 Générer mon bilan complet
+                    (PDF)</a>
             </div>
 
             <!-- TOOLBOX SECTION -->

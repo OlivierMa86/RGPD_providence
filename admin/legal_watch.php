@@ -133,16 +133,98 @@ $context = $_GET['context'] ?? 'all';
                 PPMS</a>
         </div>
 
+        <!-- Bouton de rafraîchissement IA -->
+        <div style="margin-bottom: 20px; text-align: right;">
+            <button id="btn-refresh" class="btn" style="background-color: #667eea; color: white;"
+                onclick="refreshWatch()">
+                ✨ Lancer une analyse IA sur les sources officielles
+            </button>
+            <p id="loading-msg" style="display:none; color: #667eea; font-weight: bold; margin-top: 5px;">
+                🔄 Analyse intelligente des flux officiels (CNIL, Ministère de l'Intérieur, Éducation) en cours...
+            </p>
+        </div>
+
+        <script>
+            function refreshWatch() {
+                if (!confirm("Voulez-vous lancer une analyse en temps réel des flux RSS officiels ?\nCeci utilisera l'IA Gemini pour filtrer les actualités.")) return;
+
+                const btn = document.getElementById('btn-refresh');
+                const msg = document.getElementById('loading-msg');
+
+                btn.disabled = true;
+                btn.style.opacity = "0.7";
+                msg.style.display = "block";
+
+                fetch('ajax_refresh_watch.php')
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            if (data.count === 0) {
+                                alert("✅ Analyse terminée.\n\n" + (data.message || "Rien à signaler."));
+                            } else {
+                                alert("✅ Analyse terminée ! " + data.count + " articles pertinents trouvés.");
+                                location.reload();
+                            }
+                        } else {
+                            alert("⚠️ Attention : " + (data.message || "Erreur inconnue"));
+                        }
+                    })
+                    .catch(err => {
+                        alert("Erreur réseau ou serveur.");
+                        console.error(err);
+                    })
+                    .finally(() => {
+                        btn.disabled = false;
+                        btn.style.opacity = "1";
+                        msg.style.display = "none";
+                    });
+            }
+        </script>
+
         <div class="watch-grid">
             <?php
             $display_items = [];
-            if ($context == 'all' || $context == 'rgpd') {
-                foreach ($veille_rgpd as $item)
-                    $display_items[] = array_merge($item, ['type' => 'RGPD']);
+
+            // 1. Tenter de charger les données dynamiques (JSON IA)
+            $jsonFile = 'legal_watch_data.json';
+            $json_items = [];
+            if (file_exists($jsonFile)) {
+                $raw = json_decode(file_get_contents($jsonFile), true);
+                if (is_array($raw)) {
+                    $json_items = $raw;
+                }
             }
-            if ($context == 'all' || $context == 'ppms') {
-                foreach ($veille_ppms as $item)
-                    $display_items[] = array_merge($item, ['type' => 'PPMS']);
+
+            // 2. Filtrer selon le contexte (si demandé)
+            if (!empty($json_items)) {
+                if ($context != 'all') {
+                    $display_items = array_filter($json_items, function ($item) use ($context) {
+                        return strtolower($item['type']) == strtolower($context);
+                    });
+                } else {
+                    $display_items = $json_items;
+                }
+            }
+
+            // 3. Fallback : Si aucune donnée trouvée (ou JSON vide, ou filtrage vide), on charge les données statiques
+            if (empty($display_items)) {
+                $static_items = [];
+                // On charge les tableaux du fichier inclus (legal_watch_data.php)
+                if (isset($veille_rgpd) && ($context == 'all' || $context == 'rgpd')) {
+                    foreach ($veille_rgpd as $item)
+                        $static_items[] = array_merge($item, ['type' => 'RGPD']);
+                }
+                if (isset($veille_ppms) && ($context == 'all' || $context == 'ppms')) {
+                    foreach ($veille_ppms as $item)
+                        $static_items[] = array_merge($item, ['type' => 'PPMS']);
+                }
+
+                $display_items = $static_items;
+
+                // Petit message pour dire qu'on est sur des données par défaut si on attendait de l'IA
+                if (!empty($display_items) && !empty($json_items)) {
+                    // Cas bizarre où JSON existe mais pas pour ce contexte -> on affiche le statique
+                }
             }
 
             // Tri par date décroissante

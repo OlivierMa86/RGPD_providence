@@ -128,8 +128,26 @@ $users = $pdo->query("SELECT * FROM utilisateurs ORDER BY id_utilisateur DESC")-
                         <td><?php echo htmlspecialchars($u['pseudo']); ?></td>
                         <td><?php echo htmlspecialchars($u['nom']); ?></td>
                         <td><?php echo htmlspecialchars($u['fonction']); ?></td>
-                        <td><?php echo $u['role']; ?></td>
-                        <td><a href="edit_submission.php?user_id=<?php echo $u['id_utilisateur']; ?>">👁️ Voir</a></td>
+                        <td>
+                            <form method="post" style="display:inline; white-space:nowrap;">
+                                <input type="hidden" name="user_id" value="<?php echo $u['id_utilisateur']; ?>">
+                                <select name="new_role" onchange="this.form.submit()"
+                                    style="padding:3px 6px; border-radius:4px; border:1px solid #cbd5e0; font-size:13px; cursor:pointer;">
+                                    <option value="utilisateur" <?php echo $u['role'] == 'utilisateur' ? 'selected' : ''; ?>>
+                                        Utilisateur</option>
+                                    <option value="admin" <?php echo $u['role'] == 'admin' ? 'selected' : ''; ?>>Admin
+                                    </option>
+                                </select>
+                                <input type="hidden" name="change_role" value="1">
+                            </form>
+                        </td>
+                        <td>
+                            <a href="edit_submission.php?user_id=<?php echo $u['id_utilisateur']; ?>"
+                                title="Voir le questionnaire">👁️ Voir</a>
+                            <a href="../generate_bilan_pdf.php?user_id=<?php echo $u['id_utilisateur']; ?>" target="_blank"
+                                title="Télécharger le bilan PDF complet" style="margin-left:8px; text-decoration:none;">📥
+                                PDF</a>
+                        </td>
                         <td>
                             <form method="post" style="display:inline;">
                                 <input type="hidden" name="user_id" value="<?php echo $u['id_utilisateur']; ?>">
